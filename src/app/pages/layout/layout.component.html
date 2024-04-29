@@ -1,12 +1,15 @@
 <div class="parent">
   <div class="sidebar">
     <h1 class="hotel-name">California</h1>
-    <h2 class="user-name">Welcome, {{userData}}</h2>
-    <ul class="menu">
-      <li><a class="options" routerLink="">Rooms</a></li>
-      <li><a class="options" routerLink="">Bookings</a></li>
-      <li><a class="options" routerLink="">Cart</a></li>
-      <li><a class="options" (click)="onLogOut()">Log Out</a></li>
+    <ul class="menu" *ngIf="role == 'user'">
+      <li routerLink="/user-home"><a class="options">Home</a></li>
+      <li routerLink="/user-bookings"><a class="options">Bookings</a></li>
+      <li (click)="onLogOut()"><a class="options">Log Out</a></li>
+    </ul>
+    <ul class="menu" *ngIf="role == 'staff'">
+      <li routerLink="/staff-home"><a class="options">Home</a></li>
+      <li routerLink="/staff-room-status"><a class="options">Room status</a></li>
+      <li (click)="onLogOut()"><a class="options">Log Out</a></li>
     </ul>
   </div>
   <!-- Content -->

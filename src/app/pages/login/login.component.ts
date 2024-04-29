@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AuthenticationService } from '../../core/services/authentication/authentication.service';
 import { Router } from '@angular/router';
-import { JsonpInterceptor } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -35,7 +34,7 @@ export class LoginComponent {
           if (res.success) {
             alert(res.message);
             localStorage.setItem('UserData', JSON.stringify(res.data));
-            this.Router.navigateByUrl('/home');
+            this.Router.navigateByUrl('/user-home');
           } else alert(res.message);
         });
         break;
@@ -48,8 +47,8 @@ export class LoginComponent {
             alert(res.message);
             localStorage.setItem('UserData', JSON.stringify(res.data));
             if (res.data.position == 'manager')
-              this.Router.navigateByUrl('/manager');
-            else this.Router.navigateByUrl('/staff');
+              this.Router.navigateByUrl('/manager-home');
+            else this.Router.navigateByUrl('/staff-home');
           } else alert(res.message);
         });
         break;
