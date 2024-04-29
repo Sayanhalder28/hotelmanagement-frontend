@@ -2,9 +2,10 @@ import { Routes } from '@angular/router';
 import { LayoutComponent } from './pages/layout/layout.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
-import { HomeComponent } from './pages/home/home.component';
-import { StaffComponent } from './pages/staff/staff.component';
-import { ManagerComponent } from './pages/manager/manager.component';
+import { UserHomeComponent } from './pages/user-home/user-home.component';
+import { StaffHomeComponent } from './pages/staff-home/staff-home.component';
+import { UserBookingsComponent } from './pages/user-bookings/user-bookings.component';
+import { StaffRoomStatusComponent } from './pages/staff-room-status/staff-room-status.component';
 
 export const routes: Routes = [
   {
@@ -25,16 +26,26 @@ export const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
-        path: 'home',
-        component: HomeComponent,
+        path: 'user-home',
+        component: UserHomeComponent,
       },
       {
-        path: 'staff',
-        component: StaffComponent,
+        path: 'user-bookings',
+        component: UserBookingsComponent,
+      },
+    ],
+  },
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
+        path: 'staff-home',
+        component: StaffHomeComponent,
       },
       {
-        path: 'manager',
-        component: ManagerComponent,
+        path: 'staff-room-status',
+        component: StaffRoomStatusComponent,
       },
     ],
   },
