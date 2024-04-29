@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.sidebar {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #001f4d;
+  padding-top: 20px;
+}
+
+.hotel-name {
+   text-align: center;
+   color:antiquewhite;
+   margin-bottom: 50px;
+}
+
+.menu {
+  list-style-type: none;
+  padding: 0;
+}
+
+.menu li {
+  padding: 10px;
+  text-align: center;
+}
+
+.menu li .options {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.menu li:hover {
+  color: #ff5733;
+  background-color: rgba(0, 102, 255, 0.438);
+}
+
+.content {
+  margin-left: 250px;
+  padding: 20px;
+  background: rgb(219, 219, 219);
+  min-height: 100vh;
+}
