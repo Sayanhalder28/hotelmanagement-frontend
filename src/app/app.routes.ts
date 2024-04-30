@@ -50,6 +50,28 @@ export const routes: Routes = [
     ],
   },
   {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
+        path: 'admin-home',
+        component: StaffHomeComponent,
+      },
+      {
+        path: 'admin-room-status',
+        component: StaffRoomStatusComponent,
+      },
+      {
+        path: 'admin-add-room',
+        component: StaffRoomStatusComponent,
+      },
+      {
+        path: 'admin-add-staff',
+        component: StaffRoomStatusComponent,
+      },
+    ],
+  },
+  {
     path: '**',
     component: LoginComponent,
   },
