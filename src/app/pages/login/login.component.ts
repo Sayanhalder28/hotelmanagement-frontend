@@ -27,30 +27,32 @@ export class LoginComponent {
   onLogin() {
     switch (this.formdata.role) {
       case 'customer':
-        this.AuthService.Customerlogin(
-          this.formdata.mail,
-          this.formdata.password
-        ).subscribe((res: any) => {
-          if (res.success) {
-            alert(res.message);
-            localStorage.setItem('UserData', JSON.stringify(res.data));
-            this.Router.navigateByUrl('/user-home');
-          } else alert(res.message);
-        });
+        // this.AuthService.Customerlogin(
+        //   this.formdata.mail,
+        //   this.formdata.password
+        // ).subscribe((res: any) => {
+        // if (res.success) {
+        //   alert(res.message);
+        //   localStorage.setItem('UserData', JSON.stringify(res.data));
+        //   this.Router.navigateByUrl('/user-home');
+        // } else alert(res.message);
+        this.Router.navigateByUrl('/user-home');
+        // });
         break;
       case 'staff':
-        this.AuthService.Stafflogin(
-          this.formdata.mail,
-          this.formdata.password
-        ).subscribe((res: any) => {
-          if (res.success) {
-            alert(res.message);
-            localStorage.setItem('UserData', JSON.stringify(res.data));
-            if (res.data.position == 'manager')
-              this.Router.navigateByUrl('/manager-home');
-            else this.Router.navigateByUrl('/staff-home');
-          } else alert(res.message);
-        });
+        // this.AuthService.Stafflogin(
+        //   this.formdata.mail,
+        //   this.formdata.password
+        // ).subscribe((res: any) => {
+          // if (res.success) {
+          //   alert(res.message);
+          //   localStorage.setItem('UserData', JSON.stringify(res.data));
+          //   if (res.data.position == 'manager')
+          //     this.Router.navigateByUrl('/manager-home');
+          //   else this.Router.navigateByUrl('/staff-home');
+          // } else alert(res.message);
+          this.Router.navigateByUrl('/staff-home');
+        // });
         break;
       default:
         alert('Invalid role');
