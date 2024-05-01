@@ -1,0 +1,20 @@
+<div class="room-list">
+    <h2>Room List</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Room No</th>
+          <th>Room Type</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let room of allRooms">
+          <td>{{ room.room_no }}</td>
+          <td>{{ room.room_type }}</td>
+          <td [ngClass]="{'available': room.room_status === 'Available', 'occupied': room.room_status === 'Occupied'}">{{ room.room_status }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

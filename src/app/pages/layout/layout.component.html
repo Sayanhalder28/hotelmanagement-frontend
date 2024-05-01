@@ -1,7 +1,7 @@
 <div class="parent">
   <div class="sidebar">
     <h1 class="hotel-name">California</h1>
-    
+    <h3 class="user-name">Welcome , {{userData.first_name}}</h3>
     <ul class="menu" *ngIf="userType == 'customer'">
       <li routerLink="/user-home"><a class="options">Home</a></li>
       <li routerLink="/user-bookings"><a class="options">Bookings</a></li>
@@ -9,13 +9,13 @@
     </ul>
     <ul class="menu" *ngIf="userType == 'staff'">
       <li routerLink="/staff-home"><a class="options">Home</a></li>
-      <li routerLink="/staff-room-status"><a class="options">Room status</a></li>
+      <li routerLink="/booking-active"><a class="options">Bookings</a></li>
       <li (click)="onLogOut()"><a class="options">Log Out</a></li>
     </ul>
     <ul class="menu" *ngIf="userType == 'manager'">
       <li routerLink="/admin-home"><a class="options">Home</a></li>
-      <li routerLink="/admin-room-status"><a class="options">Room status</a></li>
       <li routerLink="/admin-add-room"><a class="options">Add Room </a></li>
+      <li routerLink="/booking-history"><a class="options">All Bookings </a></li>
       <li routerLink="/admin-add-staff"><a class="options">Add Staff</a></li>
       <li (click)="onLogOut()"><a class="options">Log Out</a></li>
     </ul>

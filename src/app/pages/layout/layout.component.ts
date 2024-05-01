@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../../core/services/authentication/authentication.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -25,8 +24,6 @@ export class LayoutComponent {
         if (this.userData.position == 'Manager') this.userType = 'manager';
         else this.userType = 'staff';
       }
-
-      console.log(this.userData.hasO);
     }
   }
 

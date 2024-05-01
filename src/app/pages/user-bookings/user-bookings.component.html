@@ -1,15 +1,92 @@
 <div class="booking-container">
-    <h1>My Bookings</h1>
-    <div *ngIf="bookings.length > 0; else noBookings">
-      <div *ngFor="let booking of bookings" class="booking">
-        <div class="booking-info">
-          <p><strong>Name:</strong> {{ booking.name }}</p>
-          <p><strong>Email:</strong> {{ booking.email }}</p>
-          <p><strong>Room:</strong> {{ booking.room }}</p>
+  <h1>Bookings</h1>
+  <div *ngIf="AllBooking.length > 0; else noBookings">
+    <div *ngFor="let booking of AllBooking" class="booking">
+      <div class="booking-info">
+        <div class="left-part">
+          <p>
+            <strong>Name:</strong> {{ booking.customer_id_fk.first_name }}
+            {{ booking.customer_id_fk.last_name }}
+          </p>
+          <p><strong>Email: </strong> {{ booking.customer_id_fk.mail }}</p>
+          <p>
+            <strong>Room: </strong> {{ booking.room_id_fk.room_no }} ({{
+              booking.room_id_fk.room_type
+            }})
+          </p>
+          <p>
+            <strong>Check-in Date: </strong
+            >{{
+              booking.check_in_date[2] +
+                " / " +
+                booking.check_in_date[1] +
+                " / " +
+                booking.check_in_date[0]
+            }}
+          </p>
+          <p>
+            <strong>Check-out Date: </strong
+            >{{
+              booking.check_out_date
+                ? booking.check_out_date[2] +
+                  " / " +
+                  booking.check_out_date[1] +
+                  " / " +
+                  booking.check_out_date[0]
+                : booking.is_canceled
+                ? ""
+                : "Not Checked Out"
+            }}
+          </p>
+        </div>
+        <div class="right-part">
+          <h4
+            class="status"
+            [style.color]="
+              booking.is_canceled
+                ? 'red'
+                : booking.check_out_date
+                ? 'blue'
+                : 'green'
+            "
+          >
+            {{
+              booking.is_canceled
+                ? "CANCELED"
+                : booking.check_out_date
+                ? "CHECKED OUT"
+                : "CONFIRMED"
+            }}
+          </h4>
+          <button
+            class="checkout-button"
+            (click)="onCheckingOut(booking.booking_id)"
+            [style.visibility]="
+              isStaff
+                ? booking.is_canceled || booking.check_out_date
+                  ? 'hidden'
+                  : 'visible'
+                : 'hidden'
+            "
+          >
+            Checkout
+          </button>
+          <button
+            class="cancel-button"
+            (click)="onCancelBooking(booking.booking_id)"
+            [style.visibility]="
+              booking.is_canceled || booking.check_out_date
+                ? 'hidden'
+                : 'visible'
+            "
+          >
+            Cancel
+          </button>
         </div>
       </div>
     </div>
-    <ng-template #noBookings>
-      <p class="no-bookings">No bookings available.</p>
-    </ng-template>
   </div>
+  <ng-template #noBookings>
+    <p>No bookings available.</p>
+  </ng-template>
+</div>

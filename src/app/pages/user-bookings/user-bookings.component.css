@@ -19,16 +19,54 @@
   }
   
   .booking-info {
-    padding-left: 20px;
+    display: flex;
+    justify-content: space-between;
   }
   
   .booking-info p {
     margin: 10px 0;
   }
+
+  .right-part{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: space-between;
+  }
   
+  .status{
+    font-weight: bolder;
+  }
   .no-bookings {
     text-align: center;
     color: #666;
     font-style: italic;
+  }
+
+  .cancel-button {
+    min-width: 150px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  .checkout-button{
+    min-width: 150px;
+    background-color: #3540dc;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .cancel-button:hover {
+    background-color: #c82333;
   }
   

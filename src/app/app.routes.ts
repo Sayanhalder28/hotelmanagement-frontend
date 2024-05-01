@@ -3,9 +3,10 @@ import { LayoutComponent } from './pages/layout/layout.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { UserHomeComponent } from './pages/user-home/user-home.component';
-import { StaffHomeComponent } from './pages/staff-home/staff-home.component';
 import { UserBookingsComponent } from './pages/user-bookings/user-bookings.component';
-import { StaffRoomStatusComponent } from './pages/staff-room-status/staff-room-status.component';
+import { RoomStatusComponent } from './pages/room-status/room-status.component';
+import { AddRoomComponent } from './pages/add-room/add-room.component';
+import { AddStaffComponent } from './pages/add-staff/add-staff.component';
 
 export const routes: Routes = [
   {
@@ -41,11 +42,11 @@ export const routes: Routes = [
     children: [
       {
         path: 'staff-home',
-        component: StaffHomeComponent,
+        component: RoomStatusComponent,
       },
       {
-        path: 'staff-room-status',
-        component: StaffRoomStatusComponent,
+        path: 'booking-active',
+        component: UserBookingsComponent,
       },
     ],
   },
@@ -55,19 +56,19 @@ export const routes: Routes = [
     children: [
       {
         path: 'admin-home',
-        component: StaffHomeComponent,
-      },
-      {
-        path: 'admin-room-status',
-        component: StaffRoomStatusComponent,
+        component: RoomStatusComponent,
       },
       {
         path: 'admin-add-room',
-        component: StaffRoomStatusComponent,
+        component: AddRoomComponent,
+      },
+      {
+        path: 'booking-history',
+        component: UserBookingsComponent,
       },
       {
         path: 'admin-add-staff',
-        component: StaffRoomStatusComponent,
+        component: AddStaffComponent,
       },
     ],
   },

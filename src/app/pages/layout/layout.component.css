@@ -15,9 +15,15 @@ body {
 }
 
 .hotel-name {
-   text-align: center;
-   color:antiquewhite;
-   margin-bottom: 50px;
+  text-align: center;
+  color: antiquewhite;
+  margin-bottom: 50px;
+}
+
+.user-name {
+  text-align: center;
+  color: grey;
+  margin-bottom: 50px;
 }
 
 .menu {

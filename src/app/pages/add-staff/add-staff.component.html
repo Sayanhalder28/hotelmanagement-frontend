@@ -1,0 +1,60 @@
+<div class="form-container">
+  <h2>Add Staff</h2>
+  <form>
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input
+        type="text"
+        id="firstName"
+        name="firstName"
+        required
+        [(ngModel)]="formdata.firstName"
+      />
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input
+        type="text"
+        id="lastName"
+        name="lastName"
+        required
+        [(ngModel)]="formdata.lastName"
+      />
+    </div>
+    <div class="form-group">
+      <label for="mail">Email</label>
+      <input
+        type="email"
+        id="mail"
+        name="mail"
+        required
+        [(ngModel)]="formdata.mail"
+      />
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        required
+        [(ngModel)]="formdata.password"
+      />
+    </div>
+    <div class="form-group">
+      <label for="position">Position</label>
+      <input
+        type="text"
+        id="position"
+        name="position"
+        required
+        [(ngModel)]="formdata.position"
+      />
+    </div>
+    <div class="form-group">
+      <button type="submit" class="submit-button" (click)="onAddStaff()">
+        Add Staff
+      </button>
+    </div>
+  </form>
+</div>

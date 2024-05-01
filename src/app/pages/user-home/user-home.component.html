@@ -1,5 +1,18 @@
 <div class="container">
-  <h1>Rooms available</h1>
+  <div class="date-container">
+    <h1>Rooms available</h1>
+    <div>
+      <label class="date-label" for="checkinDate">Check in date </label>
+      <input
+      type="date"
+      class="date-input"
+      name="checkinDate"
+      placeholder="Checkin Date"
+      [(ngModel)]="checkinDate"
+    />
+    </div>
+    
+  </div>
   <div class="room-container">
     <div *ngFor="let room of rooms" class="room">
       <div class="room-content">
@@ -10,14 +23,26 @@
         />
         <div class="room-details">
           <div>
-            <h2>{{ room.name }}</h2>
-            <p>{{ room.description }}</p>
-            <p>Beds: {{ room.bedCount }}</p>
-            <p class="price">Price: ${{ room.price }}</p>
+            <h2>Room No. {{ room.room_no }}</h2>
+            <p class="type">Type: {{ room.room_type }}</p>
+            <p>
+              Status:
+              {{ room.room_status == "Available" ? "Available" : "Booked" }}
+            </p>
           </div>
 
           <div class="btn-container">
-            <button class="book-button" (click)="onBooking()">Book</button>
+            <button
+              class="book-button"
+              (click)="onBooking(room.room_id)"
+              [disabled]="room.room_status == 'Available' ? false : true"
+              [ngClass]="{
+                booked: room.room_status == 'Booked',
+                available: room.room_status == 'Available'
+              }"
+            >
+              {{ room.room_status == "Available" ? "Book" : "Booked" }}
+            </button>
           </div>
         </div>
       </div>
