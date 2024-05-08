@@ -10,12 +10,6 @@ import { BookingService } from '../../services/booking/booking.service';
   styleUrl: './user-bookings.component.css',
 })
 export class UserBookingsComponent {
-  bookings: any[] = [
-    { name: 'John Doe', email: 'john@example.com', room: 'Standard Room' },
-    { name: 'Jane Smith', email: 'jane@example.com', room: 'Deluxe Room' },
-    { name: 'Michael Johnson', email: 'michael@example.com', room: 'Suite' },
-  ];
-
   AllBooking: any = [];
   isStaff: boolean = false;
 
@@ -25,12 +19,19 @@ export class UserBookingsComponent {
       var userDataJson = JSON.parse(userData);
 
       this.isStaff = Object.keys(userDataJson).includes('staff_id');
-      console.log(this.isStaff);
+      if (this.isStaff) {
+        this.BookingService.allBooking().subscribe((res: any) => {
+          this.AllBooking = res;
+        });
+      } else {
+        var customer_id = userDataJson.customer_id;
+        this.BookingService.allBooking().subscribe((res: any) => {
+          this.AllBooking = res.filter(
+            (booking: any) => (booking.customer_id_fk.customer_id = customer_id)
+          );
+        });
+      }
     }
-    this.BookingService.allBooking().subscribe((res: any) => {
-      this.AllBooking = res;
-      console.log(this.AllBooking);
-    });
   }
 
   onCancelBooking(bookingId: number) {

@@ -14,10 +14,21 @@ export class AuthenticationService {
     });
   }
 
+  
   Stafflogin(mail: string, password: string) {
     return this.http.post<any>('http://localhost:8080/login-staff', {
       mail: mail,
       password: password,
+    });
+  }
+  
+  CustomerSignup(firstName: string, lastName: string, password: string, phoneNo: string, mail: string) {
+    return this.http.post<any>('http://localhost:8080/register-customer', {
+      firstName: firstName,
+      lastName: lastName,
+      password: password,
+      phoneNo: phoneNo,
+      mail: mail,
     });
   }
 }

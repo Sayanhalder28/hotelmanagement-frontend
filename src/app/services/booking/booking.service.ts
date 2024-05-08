@@ -35,7 +35,6 @@ export class BookingService {
     );
   }
 
-  
   allBooking() {
     return this.HttpClient.get('http://localhost:8080/all-booking-details');
   }
@@ -53,10 +52,20 @@ export class BookingService {
   }
 
   checkOutBooking(bookingId: number) {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+
+    const checkOutDate = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+
     this.HttpClient.put('http://localhost:8080/update-checkout', {
       bookingId: bookingId,
-      checkOutDate: "2024-04-10 12:00:00" // Example check-out date and time
-  }).subscribe((res: any) => {
+      checkOutDate: checkOutDate, // Example check-out date and time
+    }).subscribe((res: any) => {
       if (res.success) {
         alert(res.message);
         location.reload();
@@ -65,5 +74,4 @@ export class BookingService {
       }
     });
   }
-
 }

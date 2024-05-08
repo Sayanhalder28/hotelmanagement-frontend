@@ -1,1 +1,52 @@
-<p>signup works!</p>
+<body>
+  <div class="container p-3">
+    <div class="card">
+      <h2>Sign Up</h2>
+      <form>
+        <input
+          type="text"
+          id="firstName"
+          name="firstName"
+          placeholder="First Name"
+          required
+          [(ngModel)]="formdata.firstName"
+        />
+        <input
+          type="text"
+          id="lastName"
+          name="lastName"
+          placeholder="Last Name"
+          required
+          [(ngModel)]="formdata.lastName"
+        />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Email"
+          required
+          [(ngModel)]="formdata.mail"
+        />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Password"
+          required
+          [(ngModel)]="formdata.password"
+        />
+        <input
+          type="text"
+          id="phoneNo"
+          name="phoneNo"
+          placeholder="Phone Number"
+          required
+          [(ngModel)]="formdata.phoneNo"
+        />
+        <button type="button" (click)="onSignUp()">Sign Up</button>
+      </form>
+      <!-- login option -->
+      <p>Already have an account? <a routerLink="/login">Login</a></p>
+    </div>
+  </div>
+</body>
